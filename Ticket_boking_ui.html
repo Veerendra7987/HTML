@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎢 Ride Booking</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #004d40;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #f1f8e9;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #26a69a;
+      box-shadow: 0 0 4px rgba(38, 166, 154, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #26a69a;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+   video{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    position: fixed;
+   }
+   .main-video{
+    position: relative;
+    height: 100%;
+    width: 100%;
+   }
+    button:hover {
+      background-color: #00796b;
+    }
+    .form-card{
+      position: absolute;
+
+    }
+  </style>
+</head>
+<body >
+   
+  <h2>🎟️ Book Your Ride</h2>
+  <form action="#" method="post">
+   <div class="main-video"> 
+    <video autoplay muted loop id="bg-video">
+    <source src="website-desktop-landing.mp4">
+    </video>
+    <div class="form-card">
+    <div>
+      <label for="visitorId">Visitor ID:</label>
+      <input type="number" id="visitorId" name="visitorId" placeholder="Enter visitor ID" required />
+    </div>
+    <div>
+      <label for="rideId">Select Ride:</label>
+      <select id="rideId" name="rideId" required>
+        <option value="">-- Choose a Ride --</option>
+        <option value="1">🎢 Roller Coaster</option>
+        <option value="2">🎡 Ferris Wheel</option>
+        <option value="3">💦 Water Slide</option>
+        <option value="4">👻 Haunted House</option>
+      </select>
+    </div>
+    <div>
+      <label for="rideDate">Date:</label>
+      <input type="date" id="rideDate" name="rideDate" required />
+    </div>
+    <div>
+      <label for="rideTime">Time:</label>
+      <input type="time" id="rideTime" name="rideTime" required />
+    </div>
+
+    <button type="submit">Book Ride ✅</button>
+  </div>
+  </div>
+  </form>
+
+</body>
+</html>
