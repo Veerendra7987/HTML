@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Furniture</title>
+</head>
+<body>
+    <main> 
+       <img src="C:\Users\ashua\OneDrive\Desktop\java.jpg" width="100" height="100" border="5" align="Center"/>
+        <dt>HOME</dt>
+            <dd>Table</dd>
+                <dd>Chair</dd>
+                    <dd>Door</dd>
+        <dt>Chaire</dt>
+            <dd>Plastic Chair</dd>
+                <dd>Office Chair</dd>
+                    <dd>Recliners</dd>
+        <dt>Table</dt>
+            <dd>Peear Wood</dd>
+        
+                <dd>Marbel Being</dd>        
+</main>
+</body>
+</html>
