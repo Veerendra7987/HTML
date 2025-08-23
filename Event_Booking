@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Event Booking</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h2> Event Booking</h2>
+
+<form th:action="@{/event-book}" method="post" class="row g-3">
+
+  <div class="col-md-6">
+    <label for="visitor" class="form-label">Select Visitor</label>
+    <select class="form-select" id="visitor" name="visitorId" required>
+      <option disabled selected>-- Select Visitor --</option>
+      <option th:each="v : ${visitorList}"
+              th:value="${v.visitor_id}"
+              th:text="${v.name}">
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label for="event" class="form-label">Select Event</label>
+    <select class="form-select" id="event" name="eventId" required
+            onchange="setAmount(this)">
+      <option disabled selected>-- Select Event --</option>
+      <option th:each="e : ${eventList}"
+              th:value="${e.eventId}"
+              th:data-amount="${e.amount}"
+              th:text="${e.name}">
+      </option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="amount" class="form-label">Amount (₹)</label>
+    <input type="text" class="form-control" id="amount" name="amount" readonly/>
+  </div>
+
+  <div class="col-md-6">
+    <label for="date" class="form-label">Booking Date</label>
+    <input type="date" class="form-control" id="date" name="date" required/>
+  </div>
+
+  <div class="col-12 text-center">
+    <button type="submit" class="btn btn-success px-5">Book ✅</button>
+  </div>
+</form>
+
+<script>
+  function setAmount(select) {
+      let selectedOption = select.options[select.selectedIndex];
+      let amount = selectedOption.getAttribute("data-amount");
+      document.getElementById("amount").value = amount || "";
+  }
+</script>
+</body>
+</html>
