@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <caption>Regestration Form</caption>
+    <form>
+        <label for="nm">Enter Your Name</label>
+        <input type="text" name="nm" id="nm" placeholder="Enter Your Name" />
+        <hr/>
+        <label>Gender</label>
+        <input type="radio" name="gen" value="M"/>Male
+        <input type="radio" name="gen" value="f"/>Female
+        <hr/>
+        <label>Intrested</label>
+        <input type="checkbox" name="ch" id="ch" />Reding
+        <input type="checkbox" name="ch" id="ch" />HandiCrafting
+        <input type="checkbox" name="ch" id="ch"/>Kuch Kar
+        <hr/>
+        <label>Upload</label>
+        <input type="file">
+        <hr/>
+        <lavel>Dob</lavel>
+        <input type="date" />
+        <input type="month"/>
+        <input type="week"/>
+        <hr/>
+        <progress></progress>
+        <input type="number"/>Search Box
+        <input type="search"/>
+        <input type="tel"/>
+        <hr/>
+        Drop down
+        <select>
+            <option>Sagar</option>
+            <option>Bhopal</option>
+            <option>Damoh</option>
+            <option>Rehli</option>
+        </select>
+        <hr/>
+        <input type="submit" value="ok"/>
+        <input type="reset" value="cancel"/>
+        <input type="range" />
+        <input type="submit"/>
+        
+    </form>
+    
+</body>
+</html>
