@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+        th { background: #f5f5f5; }
+        button { padding: 5px 15px; margin: 2px; }
+        #process-desc { background: #e9ffe9; padding: 15px; border-radius: 8px; border: 1px solid #b6eab6; }
+    </style>
+</head>
+<body>
+
+    <h2>Attendance List</h2>
+    <table id="attendanceTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><span class="student-name">Alice</span></td>
+                <td><span class="status">Absent</span></td>
+                <td>
+                    <button onclick="markAttendance(this)">Mark Attendance</button>
+                    <button onclick="editName(this)">Edit</button>
+                    <button onclick="deleteRow(this)">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><span class="student-name">Bob</span></td>
+                <td><span class="status">Absent</span></td>
+                <td>
+                    <button onclick="markAttendance(this)">Mark Attendance</button>
+                    <button onclick="editName(this)">Edit</button>
+                    <button onclick="deleteRow(this)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="process-desc">
+        <strong>Process Happening:</strong><br>
+        <ul>
+            <li>To mark attendance, click "Mark Attendance" — the status will switch between "Present" and "Absent".</li>
+            <li>To update a student's name, click "Edit" and enter the new name.</li>
+            <li>To remove a student, click "Delete" to permanently remove the row.</li>
+        </ul>
+    </div>
+
+    <script>
+        function markAttendance(btn) {
+            const statusSpan = btn.closest('tr').querySelector('.status');
+            statusSpan.textContent = statusSpan.textContent === 'Present' ? 'Absent' : 'Present';
+        }
+        function editName(btn) {
+            const nameSpan = btn.closest('tr').querySelector('.student-name');
+            const newName = prompt('Enter a new name:', nameSpan.textContent);
+            if (newName && newName.trim() !== '') {
+                nameSpan.textContent = newName.trim();
+            }
+        }
+        function deleteRow(btn) {
+            if (confirm('Are you sure you want to delete this row?')) {
+                btn.closest('tr').remove();
+            }
+        }
+    </script>
+
+</body>
+</html>
