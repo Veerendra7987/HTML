@@ -1,0 +1,69 @@
+<form th:action="@{/fees/save}" th:object="${feePayment}" method="post" class="mt-3">
+
+                      <input type="hidden" th:field="*{feeId}" />
+
+                      <div class="mb-3">
+                        <label for="userSelect" class="form-label">Select User</label>
+                        <select id="userSelect" name="admissionId" class="form-control" onchange="fillAdmissionDetails()">
+                          <option disabled selected>---select an admission---</option>
+                          <option th:each="adm : ${alladmissions}"
+                                  th:value="${adm.admissionId}"
+                                  th:data-admissionid="${adm.admissionId}"
+                                  th:data-coursename="${adm.course.courseName}"
+                                  th:data-duration="${adm.course.duration}"
+                                  th:data-balance="${adm.balance}"
+                                  th:data-coursefee="${adm.fees}"
+                                  th:data-installment="${adm.course.installment}"
+                                  th:text="${adm.userMaster.fullName}+'(AID - '+${adm.admissionId}+')'"
+                                  th:selected="${feePayment.admission != null and adm.admissionId == feePayment.admission.admissionId}"> <!--edit par click kare to feeform me data apane se fill ho jaye-->
+                          </option>
+                        </select>
+                      </div>
+
+                      <div id="feeDetails" style="display:none">
+                      <div class="row mb-3">
+                        <div class="col">
+<!--                          <span>Course Name: <span id="feecourseName" th:text="${feePayment.admission.course.courseName}"></span></span>-->
+                          <span>Course Name: <span class="fw-bold" id="feecourseName" ></span></span>
+                        </div>
+                        <div class="col">
+<!--                          <span>Course Fee<span id="courseFee" th:text="${feePayment.admission.course.fees}"></span></span>-->
+                          <span>Course Fee: <span class="fw-bold" id="courseFee" ></span></span>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col">
+<!--                          <span>Total Balance<span th:text="${feePayment.admission.balance}"></span></span>-->
+                          <span>Balance: <span class="fw-bold fst-italic" id="feesbalance"></span></span>
+                        </div>
+                        <div class="col">
+<!--                          <span>Installment<span th:text="${feePayment.admission.course.installment}"></span></span>-->
+                          <span>Installment: <span class="fw-bold " id="courseInstallment"></span></span>
+                        </div>
+
+                      </div>
+                        <hr>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label">Enter Amount</label>
+                        <input type="number" id="amount" th:field="*{amount}"  class="form-control" name="amount" required>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="paymentMode" class="form-label">Payment Mode</label>
+                        <select id="paymentMode" th:field="*{paymentMode}" name="paymentMode" class="form-control">
+                          <option value="" selected disabled>--Select a payment mode</option>
+                          <option value="Cash">Cash</option>
+                          <option value="Online">Online</option>
+                          <option value="Cheque">Cheque</option>
+                          <option value="Card">Card</option>
+                        </select>
+                      </div>
+<!--                      <button type="submit" class="btn btn-primary">Submit Fee</button>-->
+                      <div class="button">
+                        <input type="reset" value="Reset">
+                        <input type="submit" id="feesubmitbutton"  value="Pay Fee">
+                      </div>
+                    </form>
