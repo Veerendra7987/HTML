@@ -1,4 +1,4 @@
-# HTML Examples & Projects
+ # HTML Examples & Projects
 
 > A repository of HTML pages and web experiments — for practice, learning, and showcasing basic frontend skills.
 
